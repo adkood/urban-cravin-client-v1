@@ -14,6 +14,7 @@ import ShoppingSection from '@/components/ShoppingSection';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import { CTABanner } from '@/components/BannerCTA';
+import { Reveal } from '@/components/anim';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
 
@@ -25,16 +26,32 @@ export default function Home() {
       <USPBar />
       <Navigation />
       <Hero />
-      <FeaturedCollection />
-      <NewArrivals />
+      <Reveal>
+        <FeaturedCollection />
+      </Reveal>
+      {/* <Reveal>
+        <NewArrivals />
+      </Reveal> */}
       {/* <Lookbook /> */}
-      <StatsBand />
-      <DropTracker />
-      <FeatureBlock />
+      <Reveal>
+        <StatsBand />
+      </Reveal>
+      <Reveal>
+        <DropTracker />
+      </Reveal>
+      <Reveal>
+        <FeatureBlock />
+      </Reveal>
       {/* <ShoppingSection /> */}
-      <Testimonials />
-      <FAQ />
-      <CTABanner />
+      <Reveal>
+        <Testimonials />
+      </Reveal>
+      <Reveal>
+        <FAQ />
+      </Reveal>
+      <Reveal>
+        <CTABanner />
+      </Reveal>
       <Footer />
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </main>

@@ -15,16 +15,16 @@ interface WaterRippleProps {
 export const WaterRipple: React.FC<WaterRippleProps> = ({
   image,
   hoverEffectEnabled = true,
-  hoverRippleRadius = 3,
-  frameRate = 30,
-  damping = 5,
+  hoverRippleRadius = 10,
+  frameRate = 144,
+  damping = 50,
   clickToRipple = true,
   clickRippleRadius = 5,
   clickRippleStrength = 512,
   className = '',
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameId = useRef<number>();
+  const animationFrameId = useRef<number | null>(null);
   const rippleDataRef = useRef<any>({});
   const lastFrameTimeRef = useRef(0);
   const mouseTrailRef = useRef<Array<{ x: number; y: number; time: number }>>([]);
@@ -328,7 +328,7 @@ export const WaterRipple: React.FC<WaterRippleProps> = ({
     }
 
     return () => {
-      if (animationFrameId.current) {
+      if (animationFrameId.current !== null) {
         cancelAnimationFrame(animationFrameId.current);
       }
     };

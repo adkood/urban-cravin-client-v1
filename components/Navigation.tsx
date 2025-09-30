@@ -6,10 +6,13 @@ import { Search, User, ShoppingCart } from 'lucide-react';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const [nearTop, setNearTop] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const y = window.scrollY || 0;
+      setScrolled(y > 50);
+      setNearTop(y < 40);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -18,9 +21,12 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'backdrop-blur-lg bg-black/80' : 'bg-transparent'
+      className={`fixed inset-x-0 z-40 transition-all duration-300 ${
+        scrolled
+          ? 'backdrop-blur-md bg-black/60 supports-[backdrop-filter]:bg-black/50 border-b border-white/10'
+          : 'bg-black/40 supports-[backdrop-filter]:bg-black/30'
       }`}
+      style={{ top: nearTop ? 32 : 0 }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
