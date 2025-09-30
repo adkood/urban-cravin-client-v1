@@ -1,22 +1,33 @@
 import { motion } from 'framer-motion';
 import { WaterRipple } from './WaterRipple';
 import { Button } from './ui/button';
+import WaterRippleEffect from "@/components/ui/water-ripple-effect";
 
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <img
           src="/hero-image.jpg"
           alt="Urban Cravin Hero"
           className="w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/30 to-background" />
+      </div> */}
+
+      <div className="absolute inset-0 z-10">
+        <WaterRippleEffect
+          imageSrc='/hero-image.jpg'
+          fitToContainer
+          className='w-full h-full'
+          containerClassName='w-full h-full'
+          scale={1.2}
+        />
       </div>
 
       {/* Water Ripple Effect */}
-      <WaterRipple
+      {/* <WaterRipple
         image="/hero-image.jpg"
         hoverEffectEnabled={true}
         hoverRippleRadius={3}
@@ -26,7 +37,8 @@ export const Hero = () => {
         damping={5}
         frameRate={30}
         className="absolute inset-0 z-10"
-      />
+      /> */}
+
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 text-center">
@@ -36,7 +48,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl text-black mb-6 tracking-tighter font-bold"
+            className="text-5xl md:text-7xl lg:text-8xl text-[#9B1E22] mb-6 tracking-tighter font-bold"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
