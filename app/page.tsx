@@ -36,9 +36,9 @@ export default function Home() {
       <Reveal>
         <StatsBand />
       </Reveal>
-      <Reveal>
+      {/* <Reveal>
         <DropTracker />
-      </Reveal>
+      </Reveal> */}
       <Reveal>
         <FeatureBlock />
       </Reveal>
@@ -46,12 +46,12 @@ export default function Home() {
       <Reveal>
         <Testimonials />
       </Reveal>
-      <Reveal>
+      {/* <Reveal>
         <FAQ />
-      </Reveal>
-      <Reveal>
+      </Reveal> */}
+      {/* <Reveal>
         <CTABanner />
-      </Reveal>
+      </Reveal> */}
       <Footer />
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </main>

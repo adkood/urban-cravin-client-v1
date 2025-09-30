@@ -32,7 +32,7 @@ export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="py-20 px-4 bg-black">
+    <section className="py-24 px-4 bg-black">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,9 +45,9 @@ export default function Testimonials() {
           <p className="text-gray-400 text-lg">Real feedback from real customers</p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto relative">
+        <div className="max-w-6xl mx-auto relative">
           {/* Testimonial Cards Stack */}
-          <div className="relative h-96 flex items-center justify-center">
+          <div className="relative h-[32rem] md:h-[34rem] flex items-center justify-center">
             {testimonials.map((testimonial, index) => {
               const isActive = index === activeIndex;
               const offset = index - activeIndex;
@@ -65,25 +65,25 @@ export default function Testimonials() {
                     zIndex: testimonials.length - Math.abs(offset),
                   }}
                   transition={{ duration: 0.4 }}
-                  className="absolute w-full max-w-2xl bg-[#141414] p-8 md:p-12 rounded-lg border border-gray-800"
+                  className="absolute w-full max-w-6xl bg-[#141414] p-10 md:p-14 rounded-2xl border border-gray-800 shadow-xl"
                 >
                   {/* Stars */}
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1.5 mb-6">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-[#9B1E22] text-[#9B1E22]" />
+                      <Star key={i} className="w-6 h-6 md:w-7 md:h-7 fill-[#9B1E22] text-[#9B1E22]" />
                     ))}
                   </div>
 
                   {/* Quote */}
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">{testimonial.quote}</h3>
+                  <h3 className="text-3xl md:text-4xl font-bold mb-5 leading-tight">{testimonial.quote}</h3>
 
                   {/* Body */}
-                  <p className="text-gray-400 text-lg mb-6">{testimonial.body}</p>
+                  <p className="text-gray-400 text-xl md:text-2xl mb-8 leading-relaxed">{testimonial.body}</p>
 
                   {/* Author */}
                   <div>
-                    <p className="font-bold text-lg">{testimonial.name}</p>
-                    <p className="text-gray-500">{testimonial.role}</p>
+                    <p className="font-bold text-xl md:text-2xl">{testimonial.name}</p>
+                    <p className="text-gray-500 text-lg md:text-xl">{testimonial.role}</p>
                   </div>
                 </motion.div>
               );
@@ -91,13 +91,13 @@ export default function Testimonials() {
           </div>
 
           {/* Navigation Dots */}
-          <div className="flex justify-center gap-3 mt-8">
+          <div className="flex justify-center gap-3 mt-10">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-[#9B1E22] ${
-                  index === activeIndex ? 'bg-[#9B1E22] w-8' : 'bg-gray-600'
+                className={`w-3.5 h-3.5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-[#9B1E22] ${
+                  index === activeIndex ? 'bg-[#9B1E22] w-10' : 'bg-gray-600'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
